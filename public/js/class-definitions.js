@@ -383,11 +383,9 @@ let scmList = ["git", "svn", "mercurial", "bazaar", "cvs"];
  function drink(beerName){
   if(beers.hasOwnProperty(beerName)){
     if(typeof beers[beerName] === 'object'){
-      console.log("object");
         return "This " + beerName + " is " + beers[beerName][0] + " and " + beers[beerName][1]  + ".";
       }
     if(typeof beers[beerName] === 'string'){
-      console.log("string");
         return "This " + beerName + " is " + beers[beerName] + ".";
     }
   } else {
@@ -425,8 +423,18 @@ let scmList = ["git", "svn", "mercurial", "bazaar", "cvs"];
  * living organism classifications as an list element(<li>)
  *
  * @return {String}
- *
+ * livingOrganismClassification = array
  */
+
+ function listLivingOrgClass(){
+  var OrgList = document.createElement('ul');
+  for(let i = 0; i < livingOrganismClassification.length; i++){
+    var Org = document.createElement('li');
+    Org.innerHTML = livingOrganismClassification[i];
+    OrgList.appendChild(Org);
+  }
+  return OrgList.outerHTML;
+ }
 
 
 /* Step 26
@@ -448,6 +456,15 @@ let scmList = ["git", "svn", "mercurial", "bazaar", "cvs"];
  * @return {String}
  *
  */
+
+ function favoritePlanet(planet){
+  if(planets.indexOf(planet) > -1){
+    var newPlanet = planets[Math.floor(Math.random()*planets.length)];
+    return `I'm from ${planet}, but I wish I could go to ${newPlanet}`;
+  } else {
+    return `${planet} is not a planet!`;
+  }
+ }
 
 
 /* Step 27
@@ -473,6 +490,24 @@ let scmList = ["git", "svn", "mercurial", "bazaar", "cvs"];
  *
  */
 
+ class Person{
+
+  constructor(name, money, age, gender){
+    this.name = name;
+    this.money = money;
+    this.age = age;
+    this.gender = gender;
+  }
+
+  spendMoney(amount){
+    this.money -= amount;
+  }
+
+  earnMoney(amount){
+    this.money += amount;
+  }
+ }
+
 
 /* Step 28
  *
@@ -486,6 +521,14 @@ let scmList = ["git", "svn", "mercurial", "bazaar", "cvs"];
  *
  */
 
+ function purchaseLaptop(laptop){
+  if(laptopCosts.hasOwnProperty(laptop)){
+    return laptopCosts[laptop].toString();
+  } else {
+    return -1;
+  }
+ }
+
 
 /* Step 29
  *
@@ -498,6 +541,14 @@ let scmList = ["git", "svn", "mercurial", "bazaar", "cvs"];
  * @return {Bool}
  *
  */
+
+ function canTalkAbout(club){
+  if(club === club_name){
+    return false;
+  } else {
+    return true;
+  }
+ }
 
 
 /* Step 30
@@ -520,6 +571,17 @@ let scmList = ["git", "svn", "mercurial", "bazaar", "cvs"];
  *   write
  *
  */
+
+ class Pen{
+
+  constructor(color){
+    this.color = color;
+  }
+
+  write(message){
+    return `${this.color}: ${message}`;
+  }
+ }
 
 
 /* Step 31
