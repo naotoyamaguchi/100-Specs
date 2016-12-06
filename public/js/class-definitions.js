@@ -611,6 +611,25 @@ let scmList = ["git", "svn", "mercurial", "bazaar", "cvs"];
  *
  */
 
+class Garden{
+  constructor(plantsTotal){
+    this.plantsTotal = plantsTotal;
+    this.isWatered = false;
+  }
+
+  water(){
+    this.isWatered = true;
+  }
+
+  grow(){
+    if(this.isWatered === true){
+      this.plantsTotal += 1;
+      this.isWatered = false;
+    } else {
+      return false;
+    } 
+  }
+}
 
 /* Step 32
  *
@@ -628,6 +647,20 @@ let scmList = ["git", "svn", "mercurial", "bazaar", "cvs"];
  *   removePlanet
  *
  */
+
+ class SolarSystem{
+  constructor(planets){
+    this.planets = [];
+  }
+
+  addPlanet(planet){
+    this.planets.push(planet);
+  }
+
+  removePlanet(planet){
+    this.planets.pop(planet);
+  }
+ }
 
 
 /* Step 33
@@ -663,6 +696,34 @@ let scmList = ["git", "svn", "mercurial", "bazaar", "cvs"];
  *
  */
 
+ class PrincessLeia extends Person{
+  constructor(name, money, age, gender, isInTrouble){
+    super(name, money, age, gender);
+    this.isInTrouble = null;
+  }
+
+  shootsGun(){
+    this.isInTrouble = false;
+    return "Leia shoots her gun wildly";
+  }
+
+  getsInTrouble(){
+    this.isInTrouble = true;
+    return "Help me Obi-wan Kenobi, you're my only hope";
+  }
+
+  marries(person){
+    if(person === "Han Solo"){
+      return true;
+    } else if (person === "Luke Skywalker"){
+      return "Gross!";
+    } else {
+      return false;
+    }
+  }
+ }
+
+
 
 /* Step 34
  *
@@ -681,6 +742,21 @@ let scmList = ["git", "svn", "mercurial", "bazaar", "cvs"];
  *   staplePapers
  *
  */
+
+ class Stapler{
+  constructor(color, maxPapers){
+    this.color = color;
+    this.maxPapers = maxPapers;
+  }
+
+  staplePapers(num){
+    if(num <= this.maxPapers){
+      return true;
+    } else {
+      return false;
+    }
+  }
+ }
 
 
 /* Step 35
@@ -721,6 +797,44 @@ let scmList = ["git", "svn", "mercurial", "bazaar", "cvs"];
  *   addDiscovery
  *
  */
+
+ class Scientist extends Person{
+  constructor(name, money, age, gender, disciplines, discoveries){
+    super(name, money, age, gender);
+    this.disciplines = [];
+    this.discoveries = [];
+  }
+
+  addDiscipline(discipline){
+    this.disciplines.push(discipline);
+    return this.disciplines;
+  }
+
+  checkDiscipline(check){
+    if(this.disciplines.indexOf(check) > -1){
+      return true;
+    } else {
+      return false;
+    }
+  }
+
+  addDiscovery(disc){
+    this.discoveries.push(disc);
+    var returnString = "I discovered ";
+    if(this.discoveries.length === 1){
+      returnString += `${this.discoveries[0]}.`;
+    }
+    if(this.discoveries.length === 2){
+      returnString += `${this.discoveries[0]} and ${this.discoveries[1]}.`;
+    } if(this.discoveries.length > 2) {
+      for(let i = 0; i < this.discoveries.length - 1; i++){
+        returnString += this.discoveries[i] + ", ";
+      }
+      returnString += "and " + this.discoveries[this.discoveries.length-1] + ".";
+    }
+    return returnString;
+  }
+ }
 
 
 /* Step 36
