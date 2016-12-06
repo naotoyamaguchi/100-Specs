@@ -858,6 +858,27 @@ class Garden{
  *
  */
 
+ class BankAccount{
+  constructor(balance, owner){
+    this.balance = balance;
+    this.owner = owner;
+  }
+
+  withdraw(amnt){
+    this.balance -= amnt;
+    this.owner += amnt;
+  }
+
+  deposit(amnt){
+    this.owner -= amnt;
+    this.balance += amnt;
+  }
+
+  rob(amnt){
+    this.balance -= amnt;
+  }
+ }
+
 
 /* Step 37
  *
@@ -1031,6 +1052,13 @@ class Garden{
  * @param {string} gender  male or female
  */
 
+ class Animal{
+  constructor(species, gender){
+    this.species = species;
+    this.gender = gender;
+  }
+ }
+
 
 /**
  * Step 51
@@ -1039,6 +1067,13 @@ class Garden{
  * @param {string} make The vehicle's make
  * @param {string} model The vehicle's model
  */
+
+ class Vehicle{
+  constructor(make, model){
+    this.make = make;
+    this.model = model;
+  }
+ }
 
 
 /**
@@ -1051,6 +1086,16 @@ class Garden{
  *
  */
 
+ class Shape{
+  constructor(sides){
+    if(sides >= 3){
+      this.sides = sides;
+    } else {
+      this.sides = null;
+    }
+  }
+ }
+
 
 /**
  * Step 53
@@ -1060,6 +1105,13 @@ class Garden{
  * @param {boolean} isOpen     Whether the box is opened or closed
  */
 
+ class Box{
+  constructor(contents){
+    this.contents = contents;
+    this.isOpen = true;
+  }
+ }
+
 
 /**
  * Step 54
@@ -1067,6 +1119,12 @@ class Garden{
  * Door class
  * @param {boolean} isOpen Whether the door is opened or closed
  */
+
+ class Door{
+  constructor(){
+    this.isOpen = true;
+  }
+ }
 
 
 /**
