@@ -1,9 +1,15 @@
+  /*jshint esversion: 6 */
+
+
+
 /* Step 1
  *
  * Declare a variable named "unicorn"
  * then set it's value to null;
  *
  */
+
+ let unicorn = null;
 
 
 /* Step 2
@@ -13,6 +19,8 @@
  *
  */
 
+ let videogame_system = "Atari";
+
 
 /* Step 3
  *
@@ -20,6 +28,8 @@
  * and assign the value of sahara_animal to "The Addax"
  *
  */
+
+ let sahara_animal = "The Addax";
 
 
 /* Step 4
@@ -30,6 +40,8 @@
  * Capitalize the names.
  */
 
+ let planets = ["Mercury", "Venus", "Earth", "Mars", "Jupiter", "Saturn", "Uranus", "Neptune"];
+
 
 /* Step 5
  *
@@ -38,6 +50,8 @@
  * each galilean moon of Jupiter
  *
  */
+
+ let galilean_moons = ["Io", "Europa", "Ganymede", "Callisto"];
 
 
 /* Step 6 φ
