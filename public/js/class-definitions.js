@@ -226,6 +226,8 @@ let browsers = {
  *
  */
 
+ let DNA = ["nucleatides", "guanine", "adenine", "thymine", "cytosine"];
+
 
 /* Step 16
  *
@@ -238,6 +240,13 @@ let browsers = {
  * Surface      => 320
  *
  */
+
+ let laptopCosts = {
+  MacBook: 1500,
+  Alienware: 2500,
+  HP: 499,
+  Surface: 320
+ };
 
 
 /* Step 17
@@ -255,6 +264,8 @@ let browsers = {
  *
  */
 
+ let livingOrganismClassification = ["Kingdom", "Phylum", "Class", "Order", "Family", "Genus", "Species"];
+
 
 /* Step 18
  *
@@ -268,6 +279,8 @@ let browsers = {
  * "cvs"
  *
  */
+
+let scmList = ["git", "svn", "mercurial", "bazaar", "cvs"];
 
 
 /* Step 19
@@ -288,6 +301,15 @@ let browsers = {
  *
  */
 
+ let beers = {
+  IPA: "Ale",
+  Lager: "Strong",
+  Heffeweisen: "German",
+  Stout: ["Thick", "Dark"],
+  Porter: "Bitter",
+  Ale: ["Light", "Golden"]
+ };
+
 
 /* Step 20
  *
@@ -297,6 +319,10 @@ let browsers = {
  * @return {String}
  *
  */
+
+ let sahara_river = function(){
+  return "Nile River";
+ };
 
 
 /* Step 21
@@ -310,6 +336,10 @@ let browsers = {
  *
  */
 
+ function addNumbers(a, b){
+  return a + b;
+ }
+
 
 /* Step 22
  *
@@ -322,6 +352,14 @@ let browsers = {
  * @return {Bool}
  *
  */
+
+ function installLinux(string){
+  if(linuxFlavors.indexOf(string) > -1){
+    return true;
+  } else {
+    return false;
+  }
+ }
 
 
 /* Step 23
