@@ -61,6 +61,8 @@
  *
  */
 
+ let golden_ratio = 1.61803398874;
+
 
 /* Step 7
  *
@@ -69,6 +71,7 @@
  *
  */
 
+let earths_water_composition = 0.71;
 
 /* Step 8
  *
@@ -76,6 +79,8 @@
  * and assign the value of club_name to "Fight Club"
  *
  */
+
+ let club_name = "Fight Club";
 
 
 /* Step 9
@@ -87,6 +92,12 @@
  *   male    => "male"
  *   unknown => undefined
  */
+
+ let gender = {
+  female: "female",
+  male: "male",
+  unknown: undefined
+ };
 
 
 /* Step 10
@@ -101,6 +112,13 @@
  *   gender  => gender.female
  *
  */
+
+ let princess_leia = {
+  name: "Leia Organa",
+  money: 890,
+  age: 20,
+  gender: gender.female
+ };
 
 
 /* Step 11
