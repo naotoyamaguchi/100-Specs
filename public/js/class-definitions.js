@@ -380,6 +380,22 @@ let scmList = ["git", "svn", "mercurial", "bazaar", "cvs"];
  *
  */
 
+ function drink(beerName){
+  if(beers.hasOwnProperty(beerName)){
+    if(typeof beers[beerName] === 'object'){
+      console.log("object");
+        return "This " + beerName + " is " + beers[beerName][0] + " and " + beers[beerName][1]  + ".";
+      }
+    if(typeof beers[beerName] === 'string'){
+      console.log("string");
+        return "This " + beerName + " is " + beers[beerName] + ".";
+    }
+  } else {
+    return false;
+  }
+ }
+
+
 
 /* Step 24
  *
@@ -392,6 +408,14 @@ let scmList = ["git", "svn", "mercurial", "bazaar", "cvs"];
  * @return {String if true else return false}
  *
  */
+
+ function browseURL(browser){
+  if(browsers.hasOwnProperty(browser)){
+    return browsers[browser];
+  } else {
+    return false;
+  }
+ }
 
 
 /* Step 25
