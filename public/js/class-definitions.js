@@ -1106,9 +1106,9 @@ class Garden{
  */
 
  class Box{
-  constructor(contents){
+  constructor(contents, isOpen){
     this.contents = contents;
-    this.isOpen = true;
+    this.isOpen = isOpen;
   }
  }
 
@@ -1121,8 +1121,8 @@ class Garden{
  */
 
  class Door{
-  constructor(){
-    this.isOpen = true;
+  constructor(isOpen){
+    this.isOpen = isOpen;
   }
  }
 
@@ -1135,6 +1135,13 @@ class Garden{
  * @param {string} color The shoe color
  */
 
+ class Shoe{
+  constructor(size, color){
+    this.size = size;
+    this.color = color;
+  }
+ }
+
 
 /**
  * Step 56
@@ -1142,6 +1149,12 @@ class Garden{
  * House class
  * @param {number} stories How many stories tall the house is
  */
+
+ class House{
+  constructor(stories){
+    this.stories = stories;
+  }
+ }
 
 
 /**
@@ -1151,6 +1164,12 @@ class Garden{
  * @param {boolean} isOn Whether the light is on or off
  */
 
+ class Lightbulb{
+  constructor(isOn){
+    this.isOn = isOn;
+  }
+ }
+
 
 /**
  * Step 58
@@ -1158,6 +1177,12 @@ class Garden{
  * Cookie class
  * @param {string} flavor The cookie's flavor
  */
+
+ class Cookie{
+  constructor(flavor){
+    this.flavor = flavor;
+  }
+ }
 
 
 /**
@@ -1167,6 +1192,12 @@ class Garden{
  * @param {Array} foods All the foods in the meal
  */
 
+ class Meal{
+  constructor(foods){
+    this.foods = foods;
+  }
+ }
+
 
 /**
  * Create a new instance of the Classes you defined above, below!
@@ -1175,44 +1206,44 @@ class Garden{
 
 
 // Create 2 different species of animals
-var george;
-var nemo;
+var george = new Animal('Monkey', 'male');
+var nemo = new Animal('Fish', 'male');
 
 // Create 2 different vehicles
-var civic;
-var forte;
+var civic = new Vehicle('Honda', 'Civic');
+var forte = new Vehicle('KIA', 'Forte');
 
 // Create 2 shapes with different numbers of sides
-var square;
-var hexagon;
+var square = new Shape(4);
+var hexagon = new Shape(6);
 
 // Create 2 boxes
-var catBox;
-var christmasPresent;
+var catBox = new Box(new Animal('Cat', 'male'), true);
+var christmasPresent = new Box('Coal', false);
 
 // Create 2 doors
-var automaticDoor;
-var bankVault;
+var automaticDoor = new Door(true);
+var bankVault = new Door(false);
 
 // Create 2 shoes
-var rubySlippers;
-var dressShoes;
+var rubySlippers = new Shoe(7, 'red');
+var dressShoes = new Shoe(10, 'black');
 
 // Create 2 houses
-var singleStory;
-var twoStory;
+var singleStory = new House(1);
+var twoStory = new House(2);
 
 // Create 2 lightbulbs
-var incandescent;
-var halogen;
+var incandescent = new Lightbulb(true);
+var halogen = new Lightbulb(false);
 
 // Create 2 cookies of different flavors
-var chocolateChip;
-var gingerbread;
+var chocolateChip = new Cookie('chocolate');
+var gingerbread = new Cookie('gingerbread');
 
 // Create 2 different meals
-var breakfast;
-var dinner;
+var breakfast = new Meal('cereal and milk');
+var dinner = new Meal ('fish and vegetables');
 
 
  /* Steps 81 to 90
@@ -1237,6 +1268,19 @@ var dinner;
  *
  */
 
+Animal.prototype.isWarmBlooded = function(){
+  if(this.species === 'Fish'){
+    return false;
+  }
+  if(this.species === 'Monkey'){
+    return true;
+  }
+  if(this.species === 'Bird'){
+    return true;
+  } else {
+    return "Could not determine if warm-blooded";
+  }
+};
 
 /* Step 82
  *
@@ -1245,6 +1289,14 @@ var dinner;
  * return "Driving on {streetName}", else return "Driving forward".
  *
  */
+
+ Vehicle.prototype.drive = function(streetName){
+  if(typeof(streetName) === 'string' && streetName !== ''){
+    return `Driving on ${streetName}`;
+  } else {
+    return "Driving forward";
+  }
+ };
 
 
  /* Step 83
@@ -1265,6 +1317,29 @@ var dinner;
  *
  */
 
+ Shape.prototype.getType = function(sides){
+  switch(this.sides){
+    case 3:
+      return "triangle";
+    case 4:
+      return "quadrilateral";
+    case 5:
+      return "pentagon";
+    case 6:
+      return "hexagon";
+    case 7:
+      return "heptagon";
+    case 8:
+      return "octagon";
+    case 9:
+      return "nonagon";
+    case 10:
+      return "decagon";
+    default :
+      return "Could not determine type";
+  }
+ };
+
 
 /* Step 84
  *
@@ -1275,6 +1350,15 @@ var dinner;
  *
  */
 
+ Box.prototype.openBox = function(){
+  if(this.isOpen === false){
+    this.isOpen = true;
+    return true;
+  } else {
+    return false;
+  }
+ };
+
 
  /* Step 85
  *
@@ -1284,6 +1368,16 @@ var dinner;
  *
  */
 
+ Door.prototype.openClose = function(){
+  if(this.isOpen === false){
+    this.isOpen = true;
+    return true;
+  } else {
+    this.isOpen = false;
+    return false;
+  }
+ };
+
 
 /* Step 86
  *
@@ -1291,6 +1385,10 @@ var dinner;
  * the color and size of the shoe ("Found red shoes of size 7").
  *
  */
+
+ Shoe.prototype.findShoes = function(){
+  return `Found ${this.color} shoes of size ${this.size}`;
+ };
 
 
  /* Step 87
@@ -1301,6 +1399,14 @@ var dinner;
  * storiesTooTall, return true, else return false.
  *
  */
+
+ House.prototype.isATallStory = function(storiesTooTall){
+  if(this.stories >= storiesTooTall){
+    return true;
+  } else {
+    return false;
+  }
+ };
 
 
  /* Step 88
@@ -1313,6 +1419,16 @@ var dinner;
  *
  */
 
+ Lightbulb.prototype.flipSwitch = function(on){
+  if(on === "on"){
+    this.isOn = true;
+    return true;
+  } else {
+    this.isOn = false;
+    return false;
+  }
+ };
+
 
  /* Step 89
  *
@@ -1321,6 +1437,14 @@ var dinner;
  * and the dayOfTheWeek is "Monday", return true.  Else return false.
  *
  */
+
+ Cookie.prototype.swipedByCookieMonster = function(dayOfTheWeek){
+  if(this.flavor === 'chocolate' && dayOfTheWeek === "Monday"){
+    return true;
+  } else {
+    return false;
+  }
+ };
 
 
  /* Step 90
@@ -1337,6 +1461,17 @@ var dinner;
  *
  */
 
+ Meal.prototype.containsJunkFood = function(){
+  var junkFood = ["chips", "soda", "ice cream", "popcorn","candy"];
+  for(var i = 0; i < junkFood.length; i++){
+    if(this.foods.indexOf(junkFood[i]) > -1){
+      return true;
+    } else {
+       return false;
+    }
+  }
+ };
+
 
  /* Steps 91 to 100
  *
@@ -1351,7 +1486,7 @@ var dinner;
  * and assign the values to each variable below.
  *
  */
-var warmBloodedAnimal;
+var warmBloodedAnimal = new Animal('Monkey', 'transgender').isWarmBlooded();
 var coldBloodedAnimal;
 var notWarmOrColdAnimal;
 
